@@ -27,5 +27,5 @@ copyright: false
 ~~~
 
 # Buddies
-{% linksfile friends/_data.yml %}
+# {% linksfile friends/_data.yml %}
 
