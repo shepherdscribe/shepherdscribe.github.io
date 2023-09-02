@@ -11,38 +11,28 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          submodules: recursive  # Include submodules
-
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # If your repository depends on submodule, please see: https://github.com/actions/checkout
+          # submodules: recursive
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-
       - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-npm-cache
+          key: ${{ runner.OS }}-npm-cache
           restore-keys: |
-            ${{ runner.os }}-npm-cache
-
+            ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
-
       - name: Build
         run: npm run build
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-
-      - name: Clean up unnecessary files
-        run: |
-          # If there are any files you want to exclude from the gh-pages branch, you can add them here
-          # For example, you can remove the node_modules directory and other build artifacts.
-          rm -rf node_modules
