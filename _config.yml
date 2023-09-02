@@ -1,24 +1,15 @@
-# Hexo Configuration
-## Docs: http://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
-
-# Site
+---
 title: Shepherd Scribe
 subtitle: Reveries of a Storyteller
 description: code and poetry
-keywords: stories, code, poetry, algorithms, heart, spirit # edit for Theme.shoka
+keywords: stories, code, poetry, algorithms, heart, spirit
 author: Cyrus
-language: en # You can only select zh-CN, zh-HK, zh-TW, ja, en here
-timezone: 'Asia/Manila'
-
-# URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+language: en
+timezone: Asia/Manila
 url: http://yoursite.com
 root: /
-permalink: :title/ # edit for Theme.shoka
-permalink_defaults:
-
-# Directory
+permalink: :title/
+permalink_defaults: null
 source_dir: source
 public_dir: public
 tag_dir: tags
@@ -26,84 +17,62 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
-
-# Writing
-new_post_name: :title.md # File name of new posts
+skip_render: null
+new_post_name: :title.md
 default_layout: post
-titlecase: false # Transform title into titlecase
+titlecase: false
 external_link:
-  enable: true # Open external links in a new tab
-  field: site # Apply to the whole site
-  exclude: ''
+  enable: true
+  field: site
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: false # edit for Theme.shoka
+  enable: false
   line_number: true
   auto_detect: true
-  tab_replace: ''
+  tab_replace: ""
 prismjs:
-  enable: false # edit for Theme.shoka
-
-# Category & Tag
+  enable: false
 default_category: uncategorized
-category_map: # edit for Theme.shoka
+category_map:
   Computer-Science: computer-science
   Java: java
   Note: note
   My-Course: course-1
   Theme Shoka Documentation: theme-shoka-doc
-tag_map:
-
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
+tag_map: null
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-
-# Pagination
-## Set per_page to 0 to disable pagination
 per_page: 10
 pagination_dir: page
-
-# Extensions
-## Plugins: http://hexo.io/plugins/
-## Themes: http://hexo.io/themes/
-theme: shoka # edit for Theme.shoka
-
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
+theme: shoka
 deploy:
   type: git
   repo: https://github.com/shepherdscribe/shepherdscribe.github.io.git
   branch: gh-pages
-  message: Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}
-
-# edit for Theme.shoka
+  message: Site updated
 autoprefixer:
   exclude:
-    - '*.min.css'
-
+    - "*.min.css"
 markdown:
-  render: # Renderer settings
-    html: false # Filter HTML tags
-    xhtmlOut: true # Use '/' to close single tags (e.g., <br />)
-    breaks: true # Convert '\n' in paragraphs to <br>
-    linkify: true # Automatically convert URL-like text to links
-    typographer:
-    quotes: '“”‘’'
-  plugins: # markdown-it plugin settings
+  render:
+    html: false
+    xhtmlOut: true
+    breaks: true
+    linkify: true
+    typographer: null
+    quotes: “”‘’
+  plugins:
     - plugin:
         name: markdown-it-toc-and-anchor
         enable: true
-        options: # Class names for article table of contents and anchors, must be set like this for the shoka theme
-          tocClassName: 'toc'
-          anchorClassName: 'anchor'
+        options:
+          tocClassName: toc
+          anchorClassName: anchor
     - plugin:
         name: markdown-it-multimd-table
         enable: true
@@ -115,65 +84,48 @@ markdown:
         name: ./markdown-it-furigana
         enable: true
         options:
-          fallbackParens: "()"
+          fallbackParens: ()
     - plugin:
         name: ./markdown-it-spoiler
         enable: true
         options:
-          title: "You know too much"
-
+          title: You know too much
 minify:
   html:
     enable: true
     stamp: false
     exclude:
-      - '**/json.ejs'
-      - '**/atom.ejs'
-      - '**/rss.ejs'
+      - "**/json.ejs"
+      - "**/atom.ejs"
+      - "**/rss.ejs"
   css:
     enable: true
     stamp: false
     exclude:
-      - '**/*.min.css'
+      - "**/*.min.css"
   js:
     enable: true
     stamp: false
     mangle:
       toplevel: true
-    output:
-    compress:
+    output: null
+    compress: null
     exclude:
-      - '**/*.min.js'
-
-# algolia:
-#   appId:
-#   apiKey:
-#   adminApiKey:
-#   chunkSize: 5000
-#   indexName:
-#   fields:
-#     - title # Must configure
-#     - path # Must configure
-#     - categories # Recommended configuration
-#     - content:strip:truncate,0,4000
-#     - gallery
-#     - photos
-#     - tags
-
+      - "**/*.min.js"
 feed:
-    limit: 20
-    order_by: "-date"
-    tag_dir: false
-    category_dir: false
-    rss:
-        enable: true
-        template: "themes/shoka/layout/_alternate/rss.ejs"
-        output: "rss.xml"
-    atom:
-        enable: true
-        template: "themes/shoka/layout/_alternate/atom.ejs"
-        output: "atom.xml"
-    jsonFeed:
-        enable: true
-        template: "themes/shoka/layout/_alternate/json.ejs"
-        output: "feed.json"
+  limit: 20
+  order_by: -date
+  tag_dir: false
+  category_dir: false
+  rss:
+    enable: true
+    template: themes/shoka/layout/_alternate/rss.ejs
+    output: rss.xml
+  atom:
+    enable: true
+    template: themes/shoka/layout/_alternate/atom.ejs
+    output: atom.xml
+  jsonFeed:
+    enable: true
+    template: themes/shoka/layout/_alternate/json.ejs
+    output: feed.json
