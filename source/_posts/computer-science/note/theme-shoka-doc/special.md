@@ -38,20 +38,20 @@ valine:
 `color`|方块颜色|可选，默认为`#666`
 
 ```raw 
-&#123;% links %&#125;
+{% links %}
 - site: #站点名称
   owner: #管理员名字
   url: #站点网址
   desc: #简短描述
   image: #一张图片
   color: #颜色代码
-&#123;% endlinks %&#125;
+{% endlinks %}
 ```
 
 举个栗子：
 
 ```raw
-&#123;% links %&#125;
+{% links %}
 - site: 優萌初華
   owner: 霜月琉璃
   url: https://shoka.lostyu.me
@@ -68,7 +68,7 @@ valine:
   url: https://shoka.lostyu.me
   desc: 琉璃的医学 & 编程笔记
   color: "#9d5b8b"
-&#123;% endlinks %&#125;
+{% endlinks %}
 ```
 
 {% links %}
@@ -95,13 +95,13 @@ valine:
 其中，`path`位于`<root>/source`目录下。
 
 ```raw
-&#123;% linksfile [path] %&#125;
+{% linksfile [path] %}
 ```
 
 举个栗子：
 
 ```raw
-&#123;% linksfile friends/_data.yml %&#125;
+{% linksfile friends/_data.yml %}
 ```
 
 # `code`代码块
@@ -451,14 +451,14 @@ H~2~0
 **加粗**
 [success]{.label .success}
 
-&#123;% links %&#125;
+{% links %}
 - site: 優萌初華
   owner: 霜月琉璃
   url: https://shoka.lostyu.me
   desc: 琉璃的医学 & 编程笔记
   image: https://cdn.jsdelivr.net/gh/amehime/shoka@latest/images/avatar.jpg
   color: "#e9546b"
-&#123;% endlinks %&#125;
+{% endlinks %}
 ;;;
 
 ;;;id1 卡片2
@@ -546,11 +546,11 @@ H~2~0
 +++
 
 +++success 绿色
-&#123;% links %&#125;
+{% links %}
 - site: 優萌初華
   url: https://shoka.lostyu.me
   color: "#e9546b"
-&#123;% endlinks %&#125;
+{% endlinks %}
 +++
 
 +++warning 黄色
@@ -661,13 +661,13 @@ H~2~0
 本功能基于Hexo Tag功能，使用`media`标签，目前可选择两种类型，即`audio`和`video`。
 
 ```raw
-&#123;% media audio %&#125;
+{% media audio %}
 ...音频列表
-&#123;% endmedia %&#125;
+{% endmedia %}
 
-&#123;% media video %&#125;
+{% media video %}
 ...视频列表
-&#123;% endmedia %&#125;
+{% endmedia %}
 ```
 
 标签包绕一段`yml`格式的内容，格式与[背景音乐](../config/#背景音乐)的配置类似。
@@ -676,7 +676,7 @@ H~2~0
 
 
 ```raw 举个栗子
-&#123;% media audio %&#125;
+{% media audio %}
 - title: 列表1
   list:
     - https://music.163.com/#/playlist?id=2943811283
@@ -684,15 +684,15 @@ H~2~0
 - title: 列表2
   list:
     - https://music.163.com/#/playlist?id=2031842656
-&#123;% endmedia %&#125;
+{% endmedia %}
 
 
-&#123;% media video %&#125;
+{% media video %}
 - name: "测试1"
   url: https://cdn.kastatic.org/ka-youtube-converted/O_nY1TM2RZM.mp4/O_nY1TM2RZM.mp4#t=0
 - name: "测试2"
   url: https://cdn.kastatic.org/ka-youtube-converted/O_nY1TM2RZM.mp4/O_nY1TM2RZM.mp4#t=0
-&#123;% endmedia %&#125;
+{% endmedia %}
 ```
 
 {% media audio %}
